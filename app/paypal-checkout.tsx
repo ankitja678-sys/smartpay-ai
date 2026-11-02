@@ -30,11 +30,10 @@ export default function PayPalCheckout({ amount, onSuccess }: Props) {
         }
 
         const paypal = await loadScript({
-          clientId,
-          currency: "USD",
-          intent: "capture",
-        });
-
+  clientId,
+  currency: "USD",
+  intent: "capture",
+});
         if (cancelled) return;
 
         if (!paypal?.Buttons || !containerRef.current) {
@@ -57,8 +56,11 @@ export default function PayPalCheckout({ amount, onSuccess }: Props) {
 
             return data.id;
           },
-
+           
           onApprove: async (data) => {
+        console.log("PAYPAL APPROVED:", data);
+
+
             const response = await fetch("/api/paypal/capture-order", {
               method: "POST",
               headers: { "Content-Type": "application/json" },

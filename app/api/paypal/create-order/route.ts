@@ -71,6 +71,7 @@ export async function POST(request: Request) {
     });
 
     const order = await response.json();
+    console.log("PAYPAL ORDER RESPONSE:", JSON.stringify(order, null, 2));
 
     if (!response.ok) {
       return NextResponse.json(
