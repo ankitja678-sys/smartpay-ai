@@ -3,7 +3,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { loadScript } from "@paypal/paypal-js";
-
+import type { PayPalButtonsComponent } from "@paypal/paypal-js";
 type Props = {
   amount: number;
   onSuccess: (details: {
@@ -19,8 +19,7 @@ export default function PayPalCheckout({ amount, onSuccess }: Props) {
 
   useEffect(() => {
     let cancelled = false;
-    let buttons: { close: () => Promise<void> } | undefined;
-
+    let buttons: PayPalButtonsComponent | undefined;
     async function initializePayPal() {
       try {
         const clientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
