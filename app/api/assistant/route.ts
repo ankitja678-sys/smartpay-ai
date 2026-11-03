@@ -2,8 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { GoogleGenAI } from "@google/genai";
 
-export const runtime = "nodejs";
-export const dynamic = "force-dynamic";
+
 
 const apiKey = process.env.GEMINI_API_KEY;
 const MODEL = "gemini-2.5-flash";
