@@ -70,9 +70,17 @@ export async function POST(request: Request) {
       cache: "no-store",
     });
 
-    const order = await response.json();
-    console.log("PAYPAL ORDER RESPONSE:", JSON.stringify(order, null, 2));
+    const paypalDebugId = response.headers.get("paypal-debug-id");
+const order = await response.json();
 
+console.log("PAYPAL CREATE ORDER DEBUG:", {
+  paypalDebugId,
+  orderId: order.id,
+  status: order.status,
+  intent: "CAPTURE",
+  currency: "USD",
+  amount: amount.toFixed(2),
+});
     if (!response.ok) {
       return NextResponse.json(
         { error: "PayPal could not create the order." },
