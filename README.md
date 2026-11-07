@@ -1,57 +1,59 @@
-
 # SmartPay AI
 
-**AI-Powered Payment Management and Risk Analysis**
+**AI-Powered Payment Management & Risk Analysis Platform**
 
-SmartPay AI is an AI-powered payment management demo built for the PayPal AI Hackathon 2026. It combines PayPal Sandbox checkout, AI-powered transaction risk assessment, payment analytics, and a conversational AI assistant in one dashboard.
+SmartPay AI is a hackathon project built for the **PayPal AI Hackathon 2026**. It combines PayPal Sandbox payment integration with Google Gemini AI to help users explore payment activity, understand transaction risks, and gain actionable insights.
 
 ## Live Demo
 
-- **Website:** https://smartpay-ai-hackathon.vercel.app/
-- **Demo Video:** https://www.youtube.com/watch?v=PuPB6uVBycA
-- **GitHub:** https://github.com/ankitja678-sys/smartpay-ai
+https://smartpay-ai-hackathon.vercel.app/
 
-## Features
+## Demo Video
 
-- **Payment Dashboard:** View transaction summaries and payment activity.
+https://youtu.be/PuPB6uVBycA
+
+## GitHub Repository
+
+https://github.com/ankitja678-sys/smartpay-ai
+
+## Key Features
+
+- **Payment Dashboard:** Monitor payment transactions and their statuses.
+- **PayPal Sandbox Integration:** Create and capture test payments using PayPal.
+- **AI Risk Analysis:** Analyze transaction details and generate risk estimates and recommendations.
+- **AI Assistant:** Ask questions about transactions and receive AI-generated insights.
 - **Transaction Monitoring:** Explore completed, pending, and failed transactions.
-- **AI Risk Analysis:** Get AI-generated risk scores, evidence-based explanations, and recommendations.
-- **AI Assistant:** Ask natural-language questions about transaction activity and payment risks.
-- **Analytics:** Explore payment statistics and transaction insights.
-- **PayPal Sandbox Integration:** Create PayPal orders, complete checkout, capture payments, and display completed test transactions.
+- **Analytics Dashboard:** View transaction summaries and payment insights.
 
-## How AI Is Used
+## AI Capabilities
 
-SmartPay AI uses Google's Gemini 2.5 Flash model through the Google GenAI SDK.
+SmartPay AI uses **Google Gemini 2.5 Flash** through the Google GenAI SDK.
 
-The AI powers two main capabilities:
+Example prompts:
+- Summarize my transactions.
+- How can I spot risky payments?
 
-1. **Conversational Assistant:** Summarizes transaction activity and answers questions about payment patterns.
-2. **Risk Assessment:** Analyzes supplied transaction fields and returns risk scores, reasons, and recommendations.
-
-Risk assessments are estimates based on the available demo data. They are not confirmed fraud detections.
+The AI assistant provides transaction explanations, summaries, and risk-related recommendations.
 
 ## PayPal Integration
 
-The project integrates with the PayPal Developer Platform using:
+The application integrates PayPal Sandbox using:
+- PayPal JavaScript SDK
+- PayPal Orders API
+- Order creation and payment capture
 
-- PayPal JavaScript SDK for checkout.
-- PayPal Orders API to create payment orders.
-- PayPal Capture API to capture approved orders.
-- PayPal Sandbox accounts for test transactions.
-
-**Important:** This project uses PayPal Sandbox for demonstration. No real money is transferred.
+**Important:** All payment demonstrations use PayPal Sandbox. No real money is transferred.
 
 ## Technology Stack
 
 - Next.js 16
 - React 19
 - TypeScript
-- Tailwind CSS 4
+- Tailwind CSS
 - Google Gemini 2.5 Flash
 - Google GenAI SDK
 - PayPal JavaScript SDK
-- PayPal REST APIs
+- PayPal Orders API
 - Vercel
 
 ## Run Locally
@@ -71,19 +73,18 @@ npm install
 
 ### 3. Configure environment variables
 
-Create a `.env.local` file in the project root:
+Create a `.env.local` file in the project root.
+
+Add your own credentials:
 
 ```env
 GEMINI_API_KEY=your_gemini_api_key
-NEXT_PUBLIC_PAYPAL_CLIENT_ID=your_paypal_sandbox_client_id
 PAYPAL_CLIENT_ID=your_paypal_sandbox_client_id
-PAYPAL_CLIENT_SECRET=your_paypal_sandbox_secret
-PAYPAL_ENVIRONMENT=sandbox
+PAYPAL_CLIENT_SECRET=your_paypal_sandbox_client_secret
+NEXT_PUBLIC_PAYPAL_CLIENT_ID=your_paypal_sandbox_client_id
 ```
 
-Use your own credentials from Google AI Studio and PayPal Developer Dashboard.
-
-Never commit `.env.local`, API keys, or PayPal secrets to GitHub.
+Use the exact variable names required by the application. Never commit real API keys or secrets.
 
 ### 4. Start the development server
 
@@ -91,32 +92,23 @@ Never commit `.env.local`, API keys, or PayPal secrets to GitHub.
 npm run dev
 ```
 
-Open http://localhost:3000
+Open http://localhost:3000.
 
-### 5. Create a production build
+### 5. Build for production
 
 ```bash
 npm run build
 ```
 
-## Demo Data and Limitations
+## Important Notes & Limitations
 
-- The dashboard includes illustrative sample transactions.
-- Sandbox payments are test transactions, not real payments.
-- AI risk scores are estimates, not definitive fraud decisions.
-- This is a hackathon demonstration, not a production-ready financial service.
-- Transaction records displayed in the demo should not be treated as a persistent production ledger.
-
-## Security
-
-- Keep all private API credentials in environment variables.
-- Never expose PayPal client secrets or Gemini API keys.
-- Do not use real customer payment information in this demo.
+- This is a hackathon demonstration project, not a production-ready payment platform.
+- Some dashboard transactions are illustrative sample data.
+- PayPal transactions shown in the demo use Sandbox.
+- AI-generated risk scores are estimates, not confirmed fraud detections.
+- AI recommendations should not be treated as definitive financial decisions.
+- Production deployment would require additional security, compliance, monitoring, and testing.
 
 ## License
 
-See the [LICENSE](./LICENSE) file for the project's open-source license.
-
----
-
-**Built for the PayPal AI Hackathon 2026.**
+This project is licensed under the MIT License. See [LICENSE](LICENSE).
