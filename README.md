@@ -1,26 +1,60 @@
+
 # SmartPay AI
 
-**AI-powered payment management and fraud risk analysis platform.**
+**AI-Powered Payment Management and Risk Analysis**
 
-SmartPay AI is a demo project built with Next.js and Google Gemini AI. It provides a dashboard to explore payment transactions, AI-powered assistance, analytics, and experimental fraud risk assessment.
+SmartPay AI is an AI-powered payment management demo built for the PayPal AI Hackathon 2026. It combines PayPal Sandbox checkout, AI-powered transaction risk assessment, payment analytics, and a conversational AI assistant in one dashboard.
+
+## Live Demo
+
+- **Website:** https://smartpay-ai-hackathon.vercel.app/
+- **Demo Video:** https://www.youtube.com/watch?v=PuPB6uVBycA
+- **GitHub:** https://github.com/ankitja678-sys/smartpay-ai
 
 ## Features
 
-- **Dashboard:** View and manage sample payment transactions.
-- **AI Assistant:** Get AI-powered responses using Google Gemini.
-- **Fraud Risk Analysis:** Generate AI-based risk scores and recommendations for demo transactions.
-- **Analytics:** Explore transaction insights through the dashboard.
-- **Demo Payment Flow:** Explore the payment interface using sample data.
+- **Payment Dashboard:** View transaction summaries and payment activity.
+- **Transaction Monitoring:** Explore completed, pending, and failed transactions.
+- **AI Risk Analysis:** Get AI-generated risk scores, evidence-based explanations, and recommendations.
+- **AI Assistant:** Ask natural-language questions about transaction activity and payment risks.
+- **Analytics:** Explore payment statistics and transaction insights.
+- **PayPal Sandbox Integration:** Create PayPal orders, complete checkout, capture payments, and display completed test transactions.
 
-## Tech Stack
+## How AI Is Used
 
-- Next.js
-- React
+SmartPay AI uses Google's Gemini 2.5 Flash model through the Google GenAI SDK.
+
+The AI powers two main capabilities:
+
+1. **Conversational Assistant:** Summarizes transaction activity and answers questions about payment patterns.
+2. **Risk Assessment:** Analyzes supplied transaction fields and returns risk scores, reasons, and recommendations.
+
+Risk assessments are estimates based on the available demo data. They are not confirmed fraud detections.
+
+## PayPal Integration
+
+The project integrates with the PayPal Developer Platform using:
+
+- PayPal JavaScript SDK for checkout.
+- PayPal Orders API to create payment orders.
+- PayPal Capture API to capture approved orders.
+- PayPal Sandbox accounts for test transactions.
+
+**Important:** This project uses PayPal Sandbox for demonstration. No real money is transferred.
+
+## Technology Stack
+
+- Next.js 16
+- React 19
 - TypeScript
-- Google Gemini API
-- CSS
+- Tailwind CSS 4
+- Google Gemini 2.5 Flash
+- Google GenAI SDK
+- PayPal JavaScript SDK
+- PayPal REST APIs
+- Vercel
 
-## Getting Started
+## Run Locally
 
 ### 1. Clone the repository
 
@@ -41,43 +75,48 @@ Create a `.env.local` file in the project root:
 
 ```env
 GEMINI_API_KEY=your_gemini_api_key
+NEXT_PUBLIC_PAYPAL_CLIENT_ID=your_paypal_sandbox_client_id
+PAYPAL_CLIENT_ID=your_paypal_sandbox_client_id
+PAYPAL_CLIENT_SECRET=your_paypal_sandbox_secret
+PAYPAL_ENVIRONMENT=sandbox
 ```
 
-Never commit your API key or share it publicly.
+Use your own credentials from Google AI Studio and PayPal Developer Dashboard.
 
-### 4. Run the development server
+Never commit `.env.local`, API keys, or PayPal secrets to GitHub.
+
+### 4. Start the development server
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open http://localhost:3000
 
-## Important Notes
+### 5. Create a production build
 
-- This is a demonstration project.
-- Transactions and payment data are sample data.
-- Fraud risk scores are AI-generated estimates, not confirmed fraud detections.
-- The demo payment flow does not transfer real money.
-- PayPal payment integration should only be considered complete once a working integration is implemented and tested.
-
-## Project Structure
-
-```text
-smartpay-ai/
-├── app/
-│   ├── api/
-│   │   ├── assistant/
-│   │   └── fraud-analysis/
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── page.tsx
-├── public/
-├── .gitignore
-├── package.json
-└── README.md
+```bash
+npm run build
 ```
+
+## Demo Data and Limitations
+
+- The dashboard includes illustrative sample transactions.
+- Sandbox payments are test transactions, not real payments.
+- AI risk scores are estimates, not definitive fraud decisions.
+- This is a hackathon demonstration, not a production-ready financial service.
+- Transaction records displayed in the demo should not be treated as a persistent production ledger.
+
+## Security
+
+- Keep all private API credentials in environment variables.
+- Never expose PayPal client secrets or Gemini API keys.
+- Do not use real customer payment information in this demo.
 
 ## License
 
-This project is intended for educational and hackathon demonstration purposes. Add an open-source license before publishing the project as an officially licensed open-source repository.
+See the [LICENSE](./LICENSE) file for the project's open-source license.
+
+---
+
+**Built for the PayPal AI Hackathon 2026.**
